@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PS5JSでオセロの盤面を描画する</title>
+    <style>
+        /* キャンバスを囲む要素のスタイル */
+        #canvas-container {
+            margin: 50px auto;
+            /* 盤面を中央に配置 */
+            width: 400px;
+            /* 盤面の幅 */
+            height: 400px;
+            /* 盤面の高さ */
+            border: 2px solid black;
+            /* 枠線 */
+            background-color: green;
+            /* 背景色 */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>OTHELLO</h1>
+    <div id="canvas-container"></div>
+        <script>
+            // キャンバスの作成
+            function setup() {
+                    const canvas = createCanvas(400, 400);
+                    canvas.parent('canvas-container');//親を指定する
+                }
+
+            // 盤面の描画
+            function draw() {
+                background(0, 128, 0); // グリーンの背景色
+                strokeWeight(2); // 線の太さを指定
+                stroke(255); // 線の色を白色に指定
+
+                // 盤面の縦横の線を描画
+                for (let i = 0; i <= 8; i++) {
+                    line(i * 50, 0, i * 50, 400); // 縦の線
+                    line(0, i * 50, 400, i * 50); // 横の線
+                }
+
+                for (let i = 0; i <= 8; i++) {
+                    for (let j = 0; j <= 8; j++) {
+                        noStroke();
+                        fill(240);
+                        ellipse(i * 50 + 25, j * 50 + 25, 40, 40);
+                    }
+                }
+
+            }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+        <script src="sketch.js"></script>
+
+</body>
+
+</html>
